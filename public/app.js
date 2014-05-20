@@ -26,20 +26,30 @@
     window.addEventListener('resize', onResize);
     function onResize() {
       letterInnerEls.forEach(function(letterEl, index) {
-        var originalStyle = {
-          top: letterEl.style.top,
-          width: letterEl.style.width
-        };
-        var rect = letterEl.getBoundingClientRect();
+        if (letterEl.complete) {
+          gatherSizes();
+        }
+        else {
+          letterSizes[index] = { width: 0, height: 0 };
+          letterEl.addEventListener('load', gatherSizes);
+        }
 
-        letterEl.style.top = 'initial';
-        letterEl.style.width = 'initial';
-        letterSizes[index] = {
-          width: rect.width,
-          height: rect.height
-        };
-        letterEl.style.top = originalStyle.top;
-        letterEl.style.width = originalStyle.width;
+        function gatherSizes() {
+          var originalStyle = {
+            top: letterEl.style.top,
+            width: letterEl.style.width
+          };
+          var rect = letterEl.getBoundingClientRect();
+
+          letterEl.style.top = 'initial';
+          letterEl.style.width = 'initial';
+          letterSizes[index] = {
+            width: rect.width,
+            height: rect.height
+          };
+          letterEl.style.top = originalStyle.top;
+          letterEl.style.width = originalStyle.width;
+        }
       });
     }
     onResize();
