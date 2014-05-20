@@ -1,0 +1,23 @@
+{
+  "name": "muzejni-noc",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Jiri Prokop <jiri-prokop@synaptiko.cz>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:initcz/muzejni-noc.git"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "compression": "^1.0.2",
+    "express": "^4.2.0",
+    "serialport": "^1.4.0",
+    "sse": "0.0.5"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}

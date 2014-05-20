@@ -1,0 +1,85 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.bar {
+  position: relative;
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+
+.bar .sensor {
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: top 0.2s;
+}
+
+#sensor1 {
+  background-color: #00af3f;
+}
+
+#sensor2 {
+  background-color: #fcd450;
+}
+
+#sensor3 {
+  background-color: #1e1e1e;
+}
+
+#sensor4 {
+  background-color: #f04d98;
+}
+
+#sensor5 {
+  background-color: #00af3f;
+}
+
+#logo {
+  position: absolute;
+  width: 18%;
+  bottom: 1%;
+  left: 50%;
+  margin-left: -9%;
+}
+
+.letter-wrap {
+  position: absolute;
+  bottom: -50%;
+  width: 20%;
+  text-align: center;
+  transition: bottom 0.2s, top 0.2s;
+}
+
+.letter {
+  vertical-align: bottom;
+  font-size: 0;
+  width: 50%;
+  height: 100%;
+  transition: width 0.1s ease-in-out;
+}
+
+#letter2 {
+  left: 20%;
+}
+
+#letter3 {
+  left: 40%;
+}
+
+#letter4 {
+  left: 60%;
+}
+
+#letter5 {
+  left: 80%;
+}
