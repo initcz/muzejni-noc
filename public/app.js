@@ -2,6 +2,42 @@
   var VALUES_COUNT = 5;
   var bodySize;
 
+  var valueToPlay = [];
+  var audio1 = T('audio', { loop:true }).load('sound/drum.wav');
+  var audio2 = T('audio', { loop:true }).load('sound/guitar.wav');
+
+  var filter1 = T('eq', {
+    params: {
+      hpf: [50, 1],
+      lmf: [828, 1.8, 18.3],
+      mf: [2400, 2.2, -24, 5],
+      lpf: [5000, 1.1]
+    }
+  }, audio1);
+  var filter2 = T('eq', {
+    params: {
+      hpf: [50, 1],
+      lmf: [828, 1.8, 18.3],
+      mf: [2400, 2.2, -24, 5],
+      lpf: [5000, 1.1]
+    }
+  }, audio2);
+
+  var clip1 = T('clip', { minmax: 0.5, mul: 1 }, filter1);
+  var clip2 = T('clip', { minmax: 0.5, mul: 1 }, filter2);
+
+  /*T('+', clip1, clip2).play();
+  T('interval', { interval: 50 }, function() {
+    clip1.set('mul', Math.max(valueToPlay[0], valueToPlay[2]) / 100);
+    clip2.set('mul', Math.max(valueToPlay[4], valueToPlay[2]) / 100);
+
+    filter1.setParams(2, valueToPlay[1] * 20, 1.8, 18.3);
+    filter2.setParams(2, valueToPlay[3] * 20, 1.8, 18.3);
+
+    filter1.setParams(3, valueToPlay[1] * 500, valueToPlay[1] * 5, valueToPlay[1] - 50, 5);
+    filter2.setParams(3, valueToPlay[3] * 500, valueToPlay[3] * 5, valueToPlay[1] - 50, 5);
+  }).start();*/
+
   window.addEventListener('resize', onResize);
   function onResize() {
     bodySize = [
@@ -55,6 +91,7 @@
     onResize();
 
     function animate(value, index) {
+      valueToPlay[index] = value;
       index = Math.min(Math.max(index, 0), sensorEls.length - 1);
       value = Math.min(Math.max(value, 0), 100);
       var sensorEl = sensorEls[index];
