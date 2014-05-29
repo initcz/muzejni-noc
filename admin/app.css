@@ -1,0 +1,53 @@
+body {
+  user-select: none;
+  margin-top: 15px;
+}
+
+slider {
+  display: block;
+  position: relative;
+  height: 40px !important;
+  margin-bottom: 15px !important;
+}
+
+slider span.pointer {
+  width: 5%;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 hsla(0, 0%, 0%, 0.15);
+  background-color: hsl(120, 39%, 54%);
+}
+
+slider span.pointer:after,
+slider span.pointer:before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: 15%;
+  right: 15%;
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+slider span.pointer:before {
+  border-color: hsla(0, 100%, 100%, 0.15);
+  margin-left: 1px;
+  margin-right: -1px;
+}
+
+slider span.bubble {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.7em;
+}
+
+slider span.bubble.limit,
+slider span.bubble.selection {
+  display: none !important;
+}

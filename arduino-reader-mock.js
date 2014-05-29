@@ -5,10 +5,19 @@ module.exports = function start(server) {
 	setInterval(function generateData() {
 		var i, k, ln = 5;
     var result = [];
+    var value;
 
 		for (i = 0; i < ln; i++) {
+      if (i === 0) {
+        // for testing of control params
+        value = 400 + Math.floor(Math.random() * 400);
+      }
+      else {
+        value = Math.floor(Math.random() * 600);
+      }
+
       data[i] = data[i] || [];
-			data[i][j] = Math.floor(Math.random() * 600);
+			data[i][j] = value;
 			//data[i][j] = ((4 - i) * 100) + Math.floor(Math.random() * 200);
 			//data[i][j] = 100;
 

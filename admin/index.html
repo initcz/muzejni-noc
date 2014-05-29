@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="admin">
+<head>
+  <link rel="stylesheet" href="/admin/components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/admin/app.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body ng-controller="AdminController as adminCtrl">
+<script src="/admin/components/angular/angular.min.js"></script>
+<script src="/admin/components/angular-touch/angular-touch.min.js"></script>
+<script src="/admin/components/angular-gestures/gestures.min.js"></script>
+<script src="/admin/components/venturocket-angular-slider/build/angular-slider.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/admin/components/angular-socket-io/socket.min.js"></script>
+
+<script src="/admin/adminController.js"></script>
+
+<div class="container-fluid">
+  <div class="row"><div class="col-md-10 col-md-offset-1">
+    <slider class="progress" ng-model="adminCtrl.controlParams[0].min" ng-model-range="adminCtrl.controlParams[0].max" floor="0" ceiling="700" buffer="40"></slider>
+  </div></div>
+  <div class="row"><div class="col-md-10 col-md-offset-1">
+    <slider class="progress" ng-model="adminCtrl.controlParams[1].min" ng-model-range="adminCtrl.controlParams[1].max" floor="0" ceiling="700" buffer="40"></slider>
+  </div></div>
+  <div class="row"><div class="col-md-10 col-md-offset-1">
+    <slider class="progress" ng-model="adminCtrl.controlParams[2].min" ng-model-range="adminCtrl.controlParams[2].max" floor="0" ceiling="700" buffer="40"></slider>
+  </div></div>
+  <div class="row"><div class="col-md-10 col-md-offset-1">
+    <slider class="progress" ng-model="adminCtrl.controlParams[3].min" ng-model-range="adminCtrl.controlParams[3].max" floor="0" ceiling="700" buffer="40"></slider>
+  </div></div>
+  <div class="row"><div class="col-md-10 col-md-offset-1">
+    <slider class="progress" ng-model="adminCtrl.controlParams[4].min" ng-model-range="adminCtrl.controlParams[4].max" floor="0" ceiling="700" buffer="40"></slider>
+  </div></div>
+</div>
+
+</body>
+</html>
